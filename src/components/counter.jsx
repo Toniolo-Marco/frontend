@@ -3,7 +3,7 @@ import { inttoString } from "../utils/string.manipulation";
 export default function Counter(props) {
   return (
     <>
-      <div>{inttoString(props.init)}</div>
+      <div >{inttoString(props.init)}</div>
     </>
   );
 }
