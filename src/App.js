@@ -15,7 +15,7 @@ function App() {
     <div className={styles.main}>
 
       <Counter init={number} />
-      <MyChart></MyChart>
+      <MyChart data={data}></MyChart>
     </div>
   );
 }
