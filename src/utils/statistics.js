@@ -1,8 +1,10 @@
 import axios from "axios";
 import { stringtoDate, stringtoShortDate } from "./string.manipulation";
 
-export function downloadData() {
-  axios
+export async function downloadData() {
+  var ret = undefined;
+
+  await axios
     .get("https://api.covid19api.com/dayone/country/italy/status/confirmed")
     .then((res) => {
       const arr = res.data;
@@ -24,9 +26,11 @@ export function downloadData() {
         ys.push(e.Cases);
       });
 
-      return {
+      ret = {
         xs,
         ys,
       };
     });
+  console.log(ret);
+  return ret;
 }
