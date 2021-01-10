@@ -1,6 +1,9 @@
 import React, { createRef, useEffect, useRef } from "react";
 import Chart from "chart.js";
+import { downloadData } from "../utils/statistics";
 export default function MyChart() {
+  const xydata = downloadData();
+
   const ref = createRef();
 
   useEffect(() => {
@@ -11,21 +14,13 @@ export default function MyChart() {
 
       // The data for our dataset
       data: {
-        labels: [
-          "January",
-          "February",
-          "March",
-          "April",
-          "May",
-          "June",
-          "July",
-        ],
+        labels: xydata.xs,
         datasets: [
           {
-            label: "My First dataset",
+            label: "Chart of Coronavirus Cases",
             backgroundColor: "rgb(255, 99, 132)",
             borderColor: "rgb(255, 99, 132)",
-            data: [0, 10, 5, 2, 20, 30, 45],
+            data: xydata.ys,
           },
         ],
       },
