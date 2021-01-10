@@ -28,7 +28,7 @@ export default function MyChart() {
       // Configuration options go here
       options: {},
     });
-  }, []);
+  }, [data.arrayCases, ref]);
   return (
     <canvas id="customizeChart" width={400} height={400} ref={ref}></canvas>
   );

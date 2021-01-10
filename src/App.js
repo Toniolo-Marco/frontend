@@ -7,12 +7,13 @@ import MyChart from "./components/chart";
 
 function App() {
   const [number, setNumber] = useState(157_000);
+  const [data, setData] = useState({ arrayCases: [], mapCases: new Map() });
   useEffect(() => setTimeout(() => setNumber(number + 1), 1000), [number]);
-  useEffect(() => downloadData(), []);
+  useEffect(() => deathPerSecond(setData), []);
   return (
     <div className={styles.main}>
       <Counter init={number} />
-      <MyChart></MyChart>
+      <MyChart data={data}></MyChart>
     </div>
   );
 }
