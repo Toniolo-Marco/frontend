@@ -1,5 +1,9 @@
 import axios from "axios";
-import { stringtoDate, stringtoShortDate } from "./string.manipulation";
+import {
+  stringtoDate,
+  stringtoShortDate,
+  datetoShortDate,
+} from "./string.manipulation";
 
 export async function downloadData() {
   var ret = undefined;
@@ -19,18 +23,14 @@ export async function downloadData() {
 
       //setting axes for chart
       arr.forEach((e) => {
-        xs.push(stringtoShortDate(e.Date));
+        xs.push(stringtoDate(e.Date));
       });
-
       arr.forEach((e) => {
         ys.push(e.Cases);
       });
+      ret = { xs, ys };
+    })
+    .finally();
 
-      ret = {
-        xs,
-        ys,
-      };
-    });
-  console.log(ret);
   return ret;
 }

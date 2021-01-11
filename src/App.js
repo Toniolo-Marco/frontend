@@ -10,7 +10,7 @@ function App() {
   useEffect(() => setTimeout(() => setNumber(number + 1), 1000), [number]);
 
   return (
-    <div className={styles.main}>
+    <div>
       <Counter init={number} />
       <MyChart></MyChart>
     </div>
